@@ -1,0 +1,6 @@
+mongodb:
+	docker run --name mongodb -d -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=pass mongo
+
+mongodb ui:
+	docker run --name mongodb-compass -e ME_CONFIG_MONGODB_URL=mongodb://admin:pass@host.docker.internal:27017 -p 8081:8081 mongo-express
+

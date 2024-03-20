@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: pass
+
+  mongodb-ui:
+    image: mongo-express
+    container_name: mongodb-compass
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://admin:pass@mongodb:27017
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mongodb
